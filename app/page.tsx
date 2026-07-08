@@ -16,7 +16,6 @@ function Card({ name, image }: CardProps) {
   return (
     <div className="h-full grid grid-rows-[200px_1fr_auto] gap-4 border border-white/20 rounded-xl overflow-hidden [&_>_*:not(img)]:mx-4 pb-4">
       <h3 className="text-2xl font-bold font-outfit">{name}</h3>
-      {/* {char.image && <img src={char.image} />} */}
 
       <Image
         src={image ? image : "https://placehold.co/600x400"}
@@ -29,10 +28,10 @@ function Card({ name, image }: CardProps) {
       />
 
       <a
-        className="py-3 border rounded-xl text-center border-white/30 hover:outline-2 hover:outline-teal-400"
+        className="py-3 border rounded-xl text-center uppercase font-semibold border-white/30 hover:outline-2 hover:outline-teal-400"
         href="#"
       >
-        Läs mer
+        View dossier
       </a>
     </div>
   );

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getCharacterById } from "@/data/characters";
+import { getCharacterById, getCharacterByIdREST } from "@/data/characters";
 import { strToNr } from "@/lib/util";
 
 // dynamic meta data generation
@@ -18,7 +18,7 @@ export async function generateMetadata({
 		return null;
 	}
 
-	const character = getCharacterById(id);
+	const character = await getCharacterByIdREST(id);
 
 	// in metadata we can return null
 	// because it doesn't really matter if we get an error,
@@ -48,7 +48,7 @@ export default async function CharacterPage(
 		return notFound();
 	}
 
-	const character = getCharacterById(id);
+	const character = await getCharacterByIdREST(id);
 
 	// redirect to not found if we don't find a character
 	if (!character) {
